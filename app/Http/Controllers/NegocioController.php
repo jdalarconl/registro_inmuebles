@@ -28,8 +28,7 @@ class NegocioController extends Controller
         $estado = Estados_inmueble::pluck('desc_estado', 'id');
         $remodelado = Remodelados::pluck('desc_remodelado', 'id');
 
-        $Propiedad = Propiedades::find($id);
-        $tipo_inm =  $Propiedad->tipo_inmueble;
+        $tipo_inm =  2;
 
         return view('negocio', compact('tipos_documento', 'negocio', 'inmueble', 'estado', 'remodelado'), ['tipo' => $tipo_inm]);
     }
