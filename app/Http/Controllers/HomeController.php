@@ -15,9 +15,10 @@ class HomeController extends Controller
     }
 
     public function store(Request $request)
-    {
-        $correo = $request->email;
-
+    {   
+        $propietarionew = 1;
+        return redirect()->route('negocio.show', $propietarionew);
+     /*   $correo = $request->email;
         $user = Propietarios::where('email', '=', $correo)->first();
 
         if ($user === null) {
@@ -29,6 +30,6 @@ class HomeController extends Controller
             $user->phone = $request->phone;
             $user->save();
             return redirect()->route('negocio.show', $user);
-        }
+        }*/
     }
 }
