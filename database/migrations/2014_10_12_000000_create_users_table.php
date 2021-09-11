@@ -11,6 +11,12 @@ class CreateUsersTable extends Migration
      *
      * @return void
      */
+
+    public function boot()
+    {
+        Schema::defaultStringLength(191);
+    }
+
     public function up()
     {
         Schema::create('users', function (Blueprint $table) {
