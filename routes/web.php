@@ -21,7 +21,7 @@ use App\Http\Controllers\PlanesController;
 */
 
 Route::get('/', HomeController::class);
-Route::post('propietario', [HomeController::class, 'store'])->name('propietario.store');
+Route::post('/', [HomeController::class, 'store'])->name('propietario.store');
 Route::get('/negocio/{id}', [NegocioController::class, 'show'])->name('negocio.show');
 Route::post('/negocio/{id}', [NegocioController::class, 'store'])->name('negocio.store');
 Route::get('/detalles/{id}', [DetallesController::class, 'show'])->name('detalles.show');
