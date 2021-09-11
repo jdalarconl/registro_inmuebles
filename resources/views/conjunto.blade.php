@@ -364,7 +364,7 @@
             </div>
             <div class="row">
                 <div class="col-6 col-md-2 text-left">
-                    <button type="button" class="btn botones">Atrás</button>
+                    
                 </div>
                 <div class="d-none d-md-block col-md-8"></div>
                 <div class="col-6 col-md-2 text-end">
