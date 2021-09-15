@@ -59,7 +59,7 @@ class DetallesController extends Controller
                 'zonas',
                 'mat_fachada'
             ),
-            ['tipo' => $tipo_inm]
+            ['tipo' => $tipo_inm,'propiedad' => $id]
         );
     }
     public function store(Request $request, $id)

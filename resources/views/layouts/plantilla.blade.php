@@ -94,7 +94,7 @@
                                                 aria-valuemax="100"></div>
                                         </div>
                                     </div>
-                                    @if ($tipo == 2)
+                                    @if ($tipo == 'Si')
                                         <div class="col conjunto" id="iconjunto">
                                             <i class="far fa-building"></i>
                                         </div>

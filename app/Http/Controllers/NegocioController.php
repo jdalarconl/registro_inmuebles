@@ -19,7 +19,7 @@ use Negocio;
 class NegocioController extends Controller
 {
     //
-    public function show($id)
+    public function show(Propietarios $propietario)
     {
 
         $tipos_documento = Tipos_documento::pluck('desc_tipos_documento', 'id');
@@ -27,16 +27,14 @@ class NegocioController extends Controller
         $inmueble = Tipos_inmueble::pluck('desc_tipo_inmueble', 'id');
         $estado = Estados_inmueble::pluck('desc_estado', 'id');
         $remodelado = Remodelados::pluck('desc_remodelado', 'id');
-
-        $tipo_inm =  2;
-
-        return view('negocio', compact('tipos_documento', 'negocio', 'inmueble', 'estado', 'remodelado'), ['tipo' => $tipo_inm]);
+        return view('negocio.negocio', compact('tipos_documento', 'negocio', 'inmueble', 'estado', 'remodelado'), ['tipo' => 'No', 'propietario' => $propietario]);
     }
 
-    public function store(Request $request, $id)
+
+
+    public function store(Request $request, Propietarios $propietario)
     {
-        //Actualización Propietario
-        $propietario = Propietarios::find($id);
+        //Actualización Propietario        
         $propietario->doc_number = $request->idnumber;
         $propietario->tipo_doc = $request->id;
         $propietario->save();
@@ -91,5 +89,21 @@ class NegocioController extends Controller
         $negocio->save();
 
         return redirect()->route('detalles.show', $propiedad);
+    }
+
+    public function edit(Propiedades $propiedad)
+    {
+        $negocio_unico = Negocios::where('propiedad', $propiedad->id)->first();
+        $codigo_pptrio = $negocio_unico->propietario;
+        $propietario = Propietarios::find($codigo_pptrio);
+
+        $tipos_documento = Tipos_documento::pluck('desc_tipos_documento', 'id');
+        $negocio = Tipos_negocios::pluck('desc_tipo_negocio', 'id');
+        $inmueble = Tipos_inmueble::pluck('desc_tipo_inmueble', 'id');
+        $estado = Estados_inmueble::pluck('desc_estado', 'id');
+        $remodelado = Remodelados::pluck('desc_remodelado', 'id');
+
+
+        return view('negocio.edit', compact('propietario', 'propiedad', 'negocio_unico', 'tipos_documento', 'negocio', 'inmueble', 'estado', 'remodelado'), ['tipo' => $propiedad->horizontal]);
     }
 }

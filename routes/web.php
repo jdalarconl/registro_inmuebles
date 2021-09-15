@@ -22,14 +22,22 @@ use App\Http\Controllers\PlanesController;
 
 Route::get('/', HomeController::class);
 Route::post('/', [HomeController::class, 'store'])->name('propietario.store');
-Route::get('/negocio/{id}', [NegocioController::class, 'show'])->name('negocio.show');
-Route::post('/negocio/{id}', [NegocioController::class, 'store'])->name('negocio.store');
-Route::get('/detalles/{id}', [DetallesController::class, 'show'])->name('detalles.show');
-Route::post('/detalles/{id}', [DetallesController::class, 'store'])->name('detalles.store');
-Route::get('/conjunto/{id}', [ConjuntoController::class, 'show'])->name('conjunto.show');
-Route::post('/conjunto/{id}', [ConjuntoController::class, 'store'])->name('conjunto.store');
-Route::get('/fotos/{id}', [FotosController::class, 'show'])->name('fotos.show');
-Route::post('/fotos/{id}', [FotosController::class, 'store'])->name('fotos.store');
-Route::get('/planes/{id}', [PlanesController::class, 'show'])->name('planes.show');
-Route::post('/planes/{id}', [PlanesController::class, 'store'])->name('planes.store');
-Route::get('/gracias/{id}', [GraciasController::class, 'show'])->name('gracias.show');
+
+Route::get('/propietario/{propietario}', [HomeController::class, 'edit'])->name('propietario.edit');
+Route::post('/propietario/{propietario}', [HomeController::class, 'update'])->name('propietario.update');
+
+Route::get('negocio/{propietario}', [NegocioController::class, 'show'])->name('negocio.show');
+Route::post('negocio/{propietario}', [NegocioController::class, 'store'])->name('negocio.store');
+Route::get('negocio/editar/{propiedad}', [NegocioController::class, 'edit'])->name('negocio.edit');
+
+
+Route::get('detalles/{id}', [DetallesController::class, 'show'])->name('detalles.show');
+Route::post('detalles/{id}', [DetallesController::class, 'store'])->name('detalles.store');
+
+Route::get('conjunto/{id}', [ConjuntoController::class, 'show'])->name('conjunto.show');
+Route::post('conjunto/{id}', [ConjuntoController::class, 'store'])->name('conjunto.store');
+Route::get('fotos/{id}', [FotosController::class, 'show'])->name('fotos.show');
+Route::post('fotos/{id}', [FotosController::class, 'store'])->name('fotos.store');
+Route::get('planes/{id}', [PlanesController::class, 'show'])->name('planes.show');
+Route::post('planes/{id}', [PlanesController::class, 'store'])->name('planes.store');
+Route::get('gracias/{id}', [GraciasController::class, 'show'])->name('gracias.show');

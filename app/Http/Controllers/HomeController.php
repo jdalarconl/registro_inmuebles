@@ -10,15 +10,14 @@ class HomeController extends Controller
     //
     public function __invoke()
     {
-        $tipo = 2;
-        return view('propietario', ['tipo' => $tipo]);
+
+        return view('propietario.create', ['tipo' => 'No']);
     }
 
     public function store(Request $request)
-    {   
-        $propietarionew = 1;
-        return redirect()->route('negocio.show', $propietarionew);
-     /*   $correo = $request->email;
+    {
+
+        $correo = $request->email;
         $user = Propietarios::where('email', '=', $correo)->first();
 
         if ($user === null) {
@@ -30,6 +29,21 @@ class HomeController extends Controller
             $user->phone = $request->phone;
             $user->save();
             return redirect()->route('negocio.show', $user);
-        }*/
+        }
+    }
+
+    public function edit(Propietarios $propietario)
+    {
+
+        return view('propietario.edit', compact('propietario'), ['tipo' => 'No']);
+    }
+
+    public function update(Request $request, Propietarios $propietario)
+    {
+        $propietario->name = $request->name;
+        $propietario->lastname = $request->lastname;
+        $propietario->phone = $request->phone;
+        $propietario->save();
+        return redirect()->route('negocio.show', $propietario);
     }
 }

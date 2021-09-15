@@ -1,12 +1,10 @@
 $(document).ready(function() {
 
-
-
     $('#descuento').hide();
     $('#admonhelper').hide();
     var year = (new Date).getFullYear();
 
-    $('select').prepend('<option selected disabled></option>');
+
 
     if ($('#propietario').length) {
 
@@ -18,8 +16,8 @@ $(document).ready(function() {
         $(".usuario i, .negocio i").css("color", "#01303c");
         $(".usuario .progress-bar, .negocio .progress-bar").css("background-color", "#01303c");
 
-        $('#detalles').hide();
         $('#SecRemodelado').hide();
+        $('#detalles').hide();
         $('#sec_tuberia').hide();
         $('#aptos2').hide();
 
@@ -81,7 +79,8 @@ $(document).ready(function() {
         });
 
         $('#tiempo_inm').change(function() {
-            if ($('#tiempo_inm').val() <= (year - 5) && $('#tiempo_inm').val() > 0) {
+            if ($('#tiempo_inm').val() <= (year - 5) && $('#tiempo_inm').val() > 0 && $('#tiempo_inm').val() != "") {
+                console.log("si");
                 $('#SecRemodelado').show();
                 $('#remodelado').attr("required", "true");
             } else {

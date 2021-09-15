@@ -446,9 +446,11 @@
             </div>
             <div class="row">
                 <div class="col-6 col-md-2 text-left">
-                    
+                    <a href="{{ route('negocio.edit', $propiedad) }}" class="btn botones">Atrás</a>
                 </div>
-                <div class="d-none d-md-block col-md-8"></div>
+                <div class="d-none d-md-block col-md-8">
+
+                </div>
                 <div class="col-6 col-md-2 text-end">
                     <button type="submit" id="enviar3" class="btn botones ">Siguiente</button>
                 </div>
