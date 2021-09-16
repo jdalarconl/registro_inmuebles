@@ -78,7 +78,7 @@
             <div class="row seccion">
                 <div class="col-12 col-md-4">
                     <div class="form-group row">
-                        <label for="pq_visitantes border-right" class="col-5 col-form-label">
+                        <label for="pq_visitantes" class="border-right col-5 col-form-label">
                             Parqueadero de visitantes</label>
                         <div class="col-2">
                             <a>No</a>
@@ -364,7 +364,7 @@
             </div>
             <div class="row">
                 <div class="col-6 col-md-2 text-left">
-                    
+
                 </div>
                 <div class="d-none d-md-block col-md-8"></div>
                 <div class="col-6 col-md-2 text-end">
