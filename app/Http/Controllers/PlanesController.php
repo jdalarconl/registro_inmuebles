@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Negocios;
+use App\Models\Propietarios;
 use App\Models\Propiedades;
 
 class PlanesController extends Controller
@@ -36,5 +37,10 @@ class PlanesController extends Controller
             $negocio->cpvj = "No";
         }
         $negocio->save();
+
+        $codigo_pptrio = $negocio->propietario;
+        $propietario = Propietarios::find($codigo_pptrio);
+        $propietario->paso = "Planes";
+        $propietario->save();
     }
 }

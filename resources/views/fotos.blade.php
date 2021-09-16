@@ -29,10 +29,11 @@
         </div>
     </div>
     </div>
-
 @endsection
+
 @section('scripts_footer')
     <script>
         $('input[type="file"]').imageuploadify();
     </script>
+    
 @endsection

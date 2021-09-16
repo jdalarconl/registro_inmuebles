@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Tipos_vigilancia;
 use App\Models\Tipos_seguridad;
 use App\Models\Tipos_cuotas;
+use App\Models\Negocios;
+use App\Models\Propietarios;
 use App\Models\Propiedades;
 
 use Illuminate\Http\Request;
@@ -145,6 +147,13 @@ class ConjuntoController extends Controller
         }
 
         $Propiedad->save();
+
+        $negocio_unico = Negocios::where('propiedad', $Propiedad->id)->first();
+        $codigo_pptrio = $negocio_unico->propietario;
+        $propietario = Propietarios::find($codigo_pptrio);
+        $propietario->paso = "Conjunto";
+        $propietario->save();
+
         return redirect()->route('fotos.show', $Propiedad);
     }
 }

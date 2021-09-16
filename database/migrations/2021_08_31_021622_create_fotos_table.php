@@ -17,6 +17,10 @@ class CreateFotosTable extends Migration
             $table->id();
             $table->string('name')->nullable();
             $table->string('image_path')->nullable();
+            $table->unsignedBigInteger('negocio')->nullable();
+            $table->foreign('negocio')
+                ->references('id')->on('negocios')
+                ->onDelete('set null');
             $table->timestamps();
         });
     }

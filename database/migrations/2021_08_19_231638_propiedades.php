@@ -25,6 +25,7 @@ class Propiedades extends Migration
             $table->string('espropietario')->nullable();
             $table->string('pqsolicita')->nullable();
             $table->string('horizontal')->nullable();
+            $table->string('arrendado')->nullable();
             $table->integer('estrato')->nullable();
 
             $table->unsignedBigInteger('ciudad')->nullable();

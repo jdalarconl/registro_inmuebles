@@ -20,12 +20,11 @@ class CreatePropietariosTable extends Migration
             $table->biginteger('doc_number')->nullable();
             $table->string('email');
             $table->string('phone');
-
             $table->unsignedBigInteger('tipo_doc')->nullable();
-            $table ->foreign('tipo_doc')
-            ->references('id')->on('tipos_documentos')
-            ->onDelete('set null');
-
+            $table->foreign('tipo_doc')
+                ->references('id')->on('tipos_documentos')
+                ->onDelete('set null');
+            $table->string('paso')->nullable();
             $table->timestamps();
         });
     }

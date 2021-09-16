@@ -102,6 +102,21 @@
                             </div>
                         </div>
                     </div>
+                    <div class="col-12 col-md-6 border-right">
+                        <div class="form-group row">
+                            <label for="arrendado" class="col-5">¿Se encuentra arrendado actualmente?</label>
+                            <div class="col-2">
+                                <a>No</a>
+                            </div>
+                            <div class="col-3 bool text-center">
+                                <input type="checkbox" name="arrendado" value="1" id="arrendado"  />
+                                <label class="slider-v1" for="arrendado"></label>
+                            </div>
+                            <div class="col-2">
+                                <a>Si</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="row" id="reglas">
                     <div class="col-12 col-md-6 border-right">

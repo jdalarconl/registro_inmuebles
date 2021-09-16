@@ -16,6 +16,8 @@ use App\Models\Calentadores;
 use App\Models\Vista;
 use App\Models\Zonas_sociales;
 use App\Models\Materiales_fachada;
+use App\Models\Negocios;
+use App\Models\Propietarios;
 use App\Models\Propiedades as Inmueble;
 
 use Propiedades;
@@ -170,6 +172,13 @@ class DetallesController extends Controller
         }
 
         $Propiedad->save();
+
+        $negocio_unico = Negocios::where('propiedad', $Propiedad->id)->first();
+        $codigo_pptrio = $negocio_unico->propietario;
+        $propietario = Propietarios::find($codigo_pptrio);
+        $propietario->paso = "Detalles";
+        $propietario->save();
+
         return redirect()->route('conjunto.show', $Propiedad);
     }
 }

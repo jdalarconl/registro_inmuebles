@@ -37,6 +37,7 @@ class NegocioController extends Controller
         //Actualización Propietario        
         $propietario->doc_number = $request->idnumber;
         $propietario->tipo_doc = $request->id;
+        $propietario->paso = "negocio";
         $propietario->save();
 
         //Creación Propiedad

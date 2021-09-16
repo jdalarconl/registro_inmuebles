@@ -27,6 +27,7 @@ class HomeController extends Controller
             $user->name = $request->name;
             $user->lastname = $request->lastname;
             $user->phone = $request->phone;
+            $user->paso = "datos";
             $user->save();
             return redirect()->route('negocio.show', $user);
         }
