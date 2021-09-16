@@ -12,7 +12,6 @@ class PlanesController extends Controller
     public function show($id)
     {
         $Propiedad = Propiedades::find($id);
-        $tipo_inm =  $Propiedad->tipo_inmueble;
 
         $negocio = Negocios::where('propiedad', $id)->first();
         $tipo_negocio = $negocio->tipo_negocio;
@@ -20,9 +19,9 @@ class PlanesController extends Controller
 
 
         if ($tipo_negocio == '1') {
-            return view('planes_venta', ['valor' => $valor], ['tipo' => $tipo_inm]);
+            return view('planes_venta', ['valor' => $valor], ['tipo' => $Propiedad->horizontal]);
         } else if ($tipo_negocio == '2') {
-            return view('planes_arriendo', ['valor' => $valor], ['tipo' => $tipo_inm]);
+            return view('planes_arriendo', ['valor' => $valor], ['tipo' => $Propiedad->horizontal]);
         }
     }
 

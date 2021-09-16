@@ -77,6 +77,11 @@ class NegocioController extends Controller
         } else {
             $propiedad->ascensor = "No";
         }
+        if ($request->arrendado) {
+            $propiedad->arrendado = "Si";
+        } else {
+            $propiedad->arrendado = "No";
+        }
         $propiedad->certificado = Storage::put('public\certificados', $request->file('certificado'));
         $propiedad->save();
 

@@ -11,8 +11,7 @@ class FotosController extends Controller
     public function show($id)
     {
         $Propiedad = Propiedades::find($id);
-        $tipo_inm =  $Propiedad->tipo_inmueble;
-        return view('fotos', ['tipo' => $tipo_inm], ['id' => $id]);
+        return view('fotos', ['tipo' => $Propiedad->horizontal], ['id' => $id]);
     }
 
     public function store(Request $request, $id)

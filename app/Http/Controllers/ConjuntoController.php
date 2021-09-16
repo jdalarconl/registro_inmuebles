@@ -20,11 +20,10 @@ class ConjuntoController extends Controller
         $cuota = Tipos_cuotas::pluck('desc_tipo_cuota', 'id');
 
         $Propiedad = Propiedades::find($id);
-        $tipo_inm =  $Propiedad->tipo_inmueble;
-        $horizontal =  $Propiedad->horizontal;
 
-        if ($horizontal == "Si") {
-            return view('conjunto', compact('vigilancia', 'seguridad', 'cuota'), ['tipo' => $tipo_inm]);
+
+        if ($Propiedad->horizontal == "Si") {
+            return view('conjunto', compact('vigilancia', 'seguridad', 'cuota'), ['tipo' => $Propiedad->horizontal]);
         } else {
             return redirect()->route('fotos.show', $id);
         }

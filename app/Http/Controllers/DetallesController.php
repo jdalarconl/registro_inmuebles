@@ -40,7 +40,6 @@ class DetallesController extends Controller
         $mat_fachada = Materiales_fachada::pluck('desc_mats_fachada', 'id');
 
         $Propiedad = Inmueble::find($id);
-        $tipo_inm =  $Propiedad->tipo_inmueble;
 
         return view(
             'detalles',
@@ -59,7 +58,7 @@ class DetallesController extends Controller
                 'zonas',
                 'mat_fachada'
             ),
-            ['tipo' => $tipo_inm,'propiedad' => $id]
+            ['tipo' => $Propiedad->horizontal, 'propiedad' => $id]
         );
     }
     public function store(Request $request, $id)
