@@ -1,5 +1,8 @@
 @extends('layouts.plantilla')
 @section('title', 'Consigna tu inmueble')
+@section('more_head')
+    <script src="{!! asset('js/selects.js') !!}"></script>
+@endsection
 
 @section('content')
     <div class="card bg-default tarjeta shadow-lg animate__animated animate__fadeInDown" id="detalles">
@@ -446,7 +449,7 @@
             </div>
             <div class="row">
                 <div class="col-6 col-md-2 text-left">
-                    <a href="{{ route('negocio.edit', $propiedad) }}" class="btn botones">Atrás</a>
+                    <!-- <a href="{{ route('negocio.edit', $propiedad) }}" class="btn botones">Atrás</a> -->
                 </div>
                 <div class="d-none d-md-block col-md-8">
 

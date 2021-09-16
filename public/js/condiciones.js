@@ -19,6 +19,7 @@ $(document).ready(function() {
         $('#SecRemodelado').hide();
         $('#detalles').hide();
         $('#sec_tuberia').hide();
+        $('#reglas').hide();
         $('#aptos2').hide();
 
         $('#espropietario').change(function() {
@@ -45,6 +46,17 @@ $(document).ready(function() {
             }
         });
 
+
+        $('#reglamento').change(function() {
+            $('#motivo').html("el reglamento de propiedad horizontal");
+            myModal.show()
+        });
+
+        $('#serv_independ').change(function() {
+            $('#motivo').html("servicios públicos independientes");
+            myModal.show()
+        });
+
         $('#tipo_inm').change(function() {
             if ($('#tipo_inm').val() == 2) {
                 $('#aptos2').show();
@@ -60,16 +72,19 @@ $(document).ready(function() {
             if ($('#negocio').val() == 2) {
                 $('#cortina').show();
                 $('#admonhelper').show();
+                $('#reglas').show();
                 $('#valorlabel').html("¿Cu&aacute;l valor le vas a asignar al inmueble en arriendo?");
             }
             if ($('#negocio').val() == 1) {
                 $('#cortina').show();
                 $('#valorlabel').html("¿Cu&aacute;l valor le vas a asignar al inmueble en venta?");
                 $('#admonhelper').hide();
+                $('#reglas').hide();
             }
             if ($('#negocio').val() == 3) {
                 $('#cortina').hide();
                 $('#admonhelper').hide();
+                $('#reglas').hide();
             }
         });
 

@@ -1,7 +1,7 @@
 @extends('layouts.plantilla')
 @section('title', 'Consigna tu inmueble')
 @section('more_head')
-<script src="{!! asset('js/selects.js') !!}"></script>
+    <script src="{!! asset('js/selects.js') !!}"></script>
 @endsection
 
 @section('content')
@@ -96,6 +96,40 @@
                             <div class="col-3 bool text-center">
                                 <input type="checkbox" name="conjunto" value="1" id="conjunto" />
                                 <label class="slider-v1" for="conjunto"></label>
+                            </div>
+                            <div class="col-2">
+                                <a>Si</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" id="reglas">
+                    <div class="col-12 col-md-6 border-right">
+                        <div class="form-group row">
+                            <label for="reglamento" class="col-5">¿Tiene reglamento de propiedad
+                                horizontal?</label>
+                            <div class="col-2">
+                                <a>No</a>
+                            </div>
+                            <div class="col-3 bool text-center">
+                                <input type="checkbox" name="reglamento" value="1" id="reglamento" checked />
+                                <label class="slider-v1" for="reglamento"></label>
+                            </div>
+                            <div class="col-2">
+                                <a>Si</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <div class="form-group row">
+                            <label for="serv_independ" class="col-5 col-form-label">¿Tiene servicios públicos
+                                independientes?</label>
+                            <div class="col-2">
+                                <a>No</a>
+                            </div>
+                            <div class="col-3 bool text-center">
+                                <input type="checkbox" name="serv_independ" value="1" id="serv_independ" checked />
+                                <label class="slider-v1" for="serv_independ"></label>
                             </div>
                             <div class="col-2">
                                 <a>Si</a>
@@ -301,4 +335,28 @@
             {{ Form::close() }}
         </div>
     </div>
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Lo sentimos</h5>
+                </div>
+                <div class="modal-body">
+                    No nos es posible comercializar y administrar el inmueble si no cuenta con <span id="motivo"><span>
+                </div>
+                <div class="modal-footer">
+                    <a href="https://epicainmobiliaria.com" type="button" class="btn botones">Finalizar</a>
+                </div>
+            </div>
+        </div>
+    </div>
+@endsection
+
+@section('scripts_footer')
+    <script>
+        var myModal = new bootstrap.Modal(document.getElementById('staticBackdrop'), {
+
+        })
+    </script>
 @endsection
