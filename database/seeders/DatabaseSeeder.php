@@ -37,5 +37,9 @@ class DatabaseSeeder extends Seeder
         $this->call(MatPisoHabSeeder::class);
         $this->call(MatPisoZsocialSeeder::class);
         $this->call(RemodeladoSeed::class);
+        $this->call(EstratoSeeder::class);
+        $this->call(NivelesSeeder::class);
+        $this->call(NumhabSeeder::class);
+        $this->call(NumbanosSeeder::class);
     }
 }

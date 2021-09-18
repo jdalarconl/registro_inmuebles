@@ -35,7 +35,6 @@ $(document).ready(function() {
         }
 
 
-
         if ($('#tipo_inm').val() == 2) {
             $('#aptos2').show();
             $('#piso').attr("required", "true");
@@ -84,46 +83,42 @@ $(document).ready(function() {
 
 
     } else if ($('#detalles').length) {
-
-        $('#sec_garajes').hide();
         $(".usuario i, .negocio i, .detalles i").css("color", "#01303c");
         $(".usuario .progress-bar, .negocio .progress-bar, .detalles .progress-bar").css("background-color", "#01303c");
+        if ($('#no_garajes').val() > 2) {
+            $('#sec_garajes').show();
+        } else {
+            $('#sec_garajes').hide();
+        }
 
     } else if ($('#conjunto_tarjeta').length) {
 
         $(".usuario i, .negocio i, .detalles i, .conjunto i").css("color", "#01303c");
         $(".usuario .progress-bar, .negocio .progress-bar, .detalles .progress-bar, .conjunto .progress-bar").css("background-color", "#01303c");
 
-        $('#no_garajes').change(function() {
-            if ($('#no_garajes').val() > 2) {
-                $('#sec_garajes').show();
-            } else {
-                $('#sec_garajes').hide();
-            }
-        });
 
-        $('#t_cuota').change(function() {
-            if ($('#t_cuota').val() == 2) {
-                $('#descuento').show();
-                console.log("ya");
-                $('#adm_cd').attr("required", "true");
 
-            } else {
-                $('#descuento').hide();
-                $('#adm_cd').val("");
-                $('#adm_cd').removeAttr('required');
-            }
-        });
+        if ($('#t_cuota').val() == 2) {
+            $('#descuento').show();
+            console.log("ya");
+            $('#adm_cd').attr("required", "true");
 
-        $('#adm_cp').keyup(function() {
-            var valor = $('#adm_cp').val();
-            $('#adm_cp_pesos').html("$ " + Intl.NumberFormat("es-CO").format(valor));
-        });
+        } else {
+            $('#descuento').hide();
+            $('#adm_cd').val("");
+            $('#adm_cd').removeAttr('required');
+        }
 
-        $('#adm_cd').keyup(function() {
-            var valor = $('#adm_cd').val();
-            $('#adm_cd_pesos').html("$ " + Intl.NumberFormat("es-CO").format(valor));
-        });
+
+
+        var valor = $('#adm_cp').val();
+        $('#adm_cp_pesos').html("$ " + Intl.NumberFormat("es-CO").format(valor));
+
+
+
+        var valor = $('#adm_cd').val();
+        $('#adm_cd_pesos').html("$ " + Intl.NumberFormat("es-CO").format(valor));
+
 
 
     } else if ($('#fotos').length) {

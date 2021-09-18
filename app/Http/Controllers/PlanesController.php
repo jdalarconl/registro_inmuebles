@@ -20,9 +20,9 @@ class PlanesController extends Controller
 
 
         if ($tipo_negocio == '1') {
-            return view('planes_venta', ['valor' => $valor], ['tipo' => $Propiedad->horizontal]);
+            return view('planes.venta', ['valor' => $valor], ['tipo' => $Propiedad->horizontal]);
         } else if ($tipo_negocio == '2') {
-            return view('planes_arriendo', ['valor' => $valor], ['tipo' => $Propiedad->horizontal]);
+            return view('planes.arriendo', ['valor' => $valor], ['tipo' => $Propiedad->horizontal]);
         }
     }
 

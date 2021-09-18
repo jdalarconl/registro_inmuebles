@@ -29,15 +29,21 @@ Route::post('/propietario/{propietario}', [HomeController::class, 'update'])->na
 Route::get('negocio/{propietario}', [NegocioController::class, 'show'])->name('negocio.show');
 Route::post('negocio/{propietario}', [NegocioController::class, 'store'])->name('negocio.store');
 Route::get('negocio/editar/{propiedad}', [NegocioController::class, 'edit'])->name('negocio.edit');
-
+Route::post('negocio/editar/{propiedad}', [NegocioController::class, 'update'])->name('negocio.update');
 
 Route::get('detalles/{id}', [DetallesController::class, 'show'])->name('detalles.show');
 Route::post('detalles/{id}', [DetallesController::class, 'store'])->name('detalles.store');
+Route::get('detalles/editar/{propiedad}', [DetallesController::class, 'edit'])->name('detalles.edit');
+Route::post('detalles/editar/{propiedad}', [DetallesController::class, 'update'])->name('detalles.update');
 
 Route::get('conjunto/{id}', [ConjuntoController::class, 'show'])->name('conjunto.show');
 Route::post('conjunto/{id}', [ConjuntoController::class, 'store'])->name('conjunto.store');
+Route::get('conjunto/editar/{propiedad}', [ConjuntoController::class, 'edit'])->name('conjunto.edit');
+Route::post('conjunto/editar/{propiedad}', [ConjuntoController::class, 'update'])->name('conjunto.update');
+
 Route::get('fotos/{id}', [FotosController::class, 'show'])->name('fotos.show');
 Route::post('fotos/{id}', [FotosController::class, 'store'])->name('fotos.store');
+
 Route::get('planes/{id}', [PlanesController::class, 'show'])->name('planes.show');
 Route::post('planes/{id}', [PlanesController::class, 'store'])->name('planes.store');
 Route::get('gracias/{id}', [GraciasController::class, 'show'])->name('gracias.show');

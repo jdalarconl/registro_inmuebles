@@ -17,6 +17,9 @@ use App\Models\Vista;
 use App\Models\Zonas_sociales;
 use App\Models\Materiales_fachada;
 use App\Models\Negocios;
+use App\Models\Niveles;
+use App\Models\Num_banos;
+use App\Models\Num_habitaciones;
 use App\Models\Propietarios;
 use App\Models\Propiedades as Inmueble;
 
@@ -27,6 +30,9 @@ class DetallesController extends Controller
     public function show($id)
     {
 
+        $niveles = Niveles::pluck('des_nivel', 'id');
+        $num_hab = Num_habitaciones::pluck('num_habitaciones', 'id');
+        $num_banos = Num_banos::pluck('num_banos', 'id');
         $garajes = No_garajes::pluck('desc_no_garajes', 'id');
         $mat_habitaciones = Mats_piso_habitacion::pluck('desc_mats_piso_habitaciones', 'id');
         $mat_cocina = Mats_piso_cocina::pluck('desc_mats_piso_cocina', 'id');
@@ -44,8 +50,11 @@ class DetallesController extends Controller
         $Propiedad = Inmueble::find($id);
 
         return view(
-            'detalles',
+            'detalles.detalles',
             compact(
+                'niveles',
+                'num_hab',
+                'num_banos',
                 'garajes',
                 'mat_habitaciones',
                 'mat_cocina',
@@ -60,7 +69,7 @@ class DetallesController extends Controller
                 'zonas',
                 'mat_fachada'
             ),
-            ['tipo' => $Propiedad->horizontal, 'propiedad' => $id]
+            ['tipo' => $Propiedad->horizontal, 'tipo_inm' => $Propiedad->tipo_inmueble, 'propiedad' => $id]
         );
     }
     public function store(Request $request, $id)
@@ -69,9 +78,9 @@ class DetallesController extends Controller
         $Propiedad->a_construida = $request->a_construida;
         $Propiedad->a_privada = $request->a_privada;
         $Propiedad->a_terreno = $request->a_terreno;
-        $Propiedad->niveles = $request->niveles;
+        $Propiedad->nivel = $request->niveles;
         $Propiedad->n_hab = $request->n_hab;
-        $Propiedad->banos = $request->no_banos;
+        $Propiedad->n_banos = $request->no_banos;
         $Propiedad->no_garajes = $request->no_garajes;
         $Propiedad->mat_habitacion = $request->material_hab;
         $Propiedad->mat_piso_cocina = $request->mp_cocina;
@@ -180,5 +189,158 @@ class DetallesController extends Controller
         $propietario->save();
 
         return redirect()->route('conjunto.show', $Propiedad);
+    }
+    public function edit(Inmueble $propiedad)
+    {
+        $niveles = Niveles::pluck('des_nivel', 'id');
+        $num_hab = Num_habitaciones::pluck('num_habitaciones', 'id');
+        $num_banos = Num_banos::pluck('num_banos', 'id');
+        $garajes = No_garajes::pluck('desc_no_garajes', 'id');
+        $mat_habitaciones = Mats_piso_habitacion::pluck('desc_mats_piso_habitaciones', 'id');
+        $mat_cocina = Mats_piso_cocina::pluck('desc_mats_piso_cocina', 'id');
+        $mat_bano = Mats_piso_bano::pluck('desc_mats_piso_bano', 'id');
+        $mat_zsocial = Mats_piso_zsocial::pluck('desc_mats_piso_zsocial', 'id');
+        $mb_cocina = Mb_cocina::pluck('desc_mbs_cocina', 'id');
+        $estufa = Tipos_estufa::pluck('desc_tipos_estufa', 'id');
+        $horno = Tipos_horno::pluck('desc_tipos_horno', 'id');
+        $tipo_cocina = Tipos_cocina::pluck('desc_tipos_cocina', 'id');
+        $calentador = Calentadores::pluck('desc_tipos_calentador', 'id');
+        $vista = Vista::pluck('desc_vista', 'id');
+        $zonas = Zonas_sociales::pluck('desc_zona_social', 'id');
+        $mat_fachada = Materiales_fachada::pluck('desc_mats_fachada', 'id');
+
+        return view(
+            'detalles.edit',
+            compact(
+                'niveles',
+                'num_hab',
+                'num_banos',
+                'garajes',
+                'mat_habitaciones',
+                'mat_cocina',
+                'mat_bano',
+                'mat_zsocial',
+                'mb_cocina',
+                'estufa',
+                'horno',
+                'tipo_cocina',
+                'calentador',
+                'vista',
+                'zonas',
+                'mat_fachada'
+            ),
+            ['tipo' => $propiedad->horizontal, 'tipo_inm' => $propiedad->tipo_inmueble, 'propiedad' => $propiedad]
+        );
+    }
+
+    public function update(Request $request, Inmueble $propiedad)
+    {
+        $propiedad->a_construida = $request->a_construida;
+        $propiedad->a_privada = $request->a_privada;
+        $propiedad->a_terreno = $request->a_terreno;
+        $propiedad->nivel = $request->niveles;
+        $propiedad->n_hab = $request->n_hab;
+        $propiedad->n_banos = $request->no_banos;
+        $propiedad->no_garajes = $request->no_garajes;
+        $propiedad->mat_habitacion = $request->material_hab;
+        $propiedad->mat_piso_cocina = $request->mp_cocina;
+        $propiedad->mat_piso_bano = $request->mat_piso_bano;
+        $propiedad->mat_piso_zsocial = $request->mat_piso_zona_social;
+        $propiedad->mb_cocina = $request->mb_cocina;
+        $propiedad->tipo_estufa = $request->estufa;
+        $propiedad->tipo_horno = $request->horno;
+        $propiedad->tipo_cocina = $request->tp_cocina;
+        $propiedad->tipo_calentador = $request->calentador;
+        $propiedad->tipo_vista = $request->vista;
+        $propiedad->zona_social = $request->zona_social;
+        $propiedad->material_fachada = $request->material_fachada;
+
+        // checks
+        if ($request->terraza) {
+            $propiedad->terraza = "Si";
+        } else {
+            $propiedad->terraza = "No";
+        }
+
+        if ($request->chimenea) {
+            $propiedad->chimenea = "Si";
+        } else {
+            $propiedad->chimenea = "No";
+        }
+
+        if ($request->balcon) {
+            $propiedad->balcon = "Si";
+        } else {
+            $propiedad->balcon = "No";
+        }
+
+        if ($request->b_servicio) {
+            $propiedad->b_servicio = "Si";
+        } else {
+            $propiedad->b_servicio = "No";
+        }
+
+        if ($request->b_social) {
+            $propiedad->b_social = "Si";
+        } else {
+            $propiedad->b_social = "No";
+        }
+
+        if ($request->estudio) {
+            $propiedad->estudio = "Si";
+        } else {
+            $propiedad->estudio = "No";
+        }
+
+        if ($request->deposito) {
+            $propiedad->deposito = "Si";
+        } else {
+            $propiedad->deposito = "No";
+        }
+
+        if ($request->hab_servicio) {
+            $propiedad->hab_servicio = "Si";
+        } else {
+            $propiedad->hab_servicio = "No";
+        }
+
+        if ($request->star) {
+            $propiedad->star = "Si";
+        } else {
+            $propiedad->star = "No";
+        }
+
+        if ($request->zona_lavanderia) {
+            $propiedad->zona_lavanderia = "Si";
+        } else {
+            $propiedad->zona_lavanderia = "No";
+        }
+
+        if ($request->patio) {
+            $propiedad->patio = "Si";
+        } else {
+            $propiedad->patio = "No";
+        }
+
+        if ($request->entrega_cortinas) {
+            $propiedad->entrega_cortinas = "Si";
+        } else {
+            $propiedad->entrega_cortinas = "No";
+        }
+
+        if ($request->garaje_i) {
+            $propiedad->garaje_i = "Si";
+        } else {
+            $propiedad->garaje_i = "No";
+        }
+
+        if ($request->garaje_c) {
+            $propiedad->garaje_c = "Si";
+        } else {
+            $propiedad->garaje_c = "No";
+        }
+
+        $propiedad->save();
+        return redirect()->route('conjunto.show', $propiedad);
     }
 }

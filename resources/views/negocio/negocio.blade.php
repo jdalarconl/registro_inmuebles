@@ -172,14 +172,7 @@
                         <div class="form-group row">
                             <label for="estrato_inm" class="col-5 col-form-label">Estrato</label>
                             <div class="col-7">
-                                <select id="estrato_inm" name="estrato_inm" required="required" class="form-select">
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
-                                    <option value="5">5</option>
-                                    <option value="6">6</option>
-                                </select>
+                                {!! Form::select('estrato_inm', $estratos, null, ['class' => 'form-select', 'id' => 'tipo_inm', 'required' => 'required']) !!}
                             </div>
                         </div>
                     </div>

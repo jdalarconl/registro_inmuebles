@@ -112,6 +112,25 @@
                             </div>
                         </div>
                     </div>
+                    <div class="col-12 col-md-6 border-right">
+                        <div class="form-group row">
+                            <label for="arrendado" class="col-5">¿Se encuentra arrendado actualmente?</label>
+                            <div class="col-2">
+                                <a>No</a>
+                            </div>
+                            <div class="col-3 bool text-center">
+                                @if ($propiedad->arrendado == 'Si')
+                                    <input type="checkbox" name="arrendado" value="1" id="arrendado" checked />
+                                @else
+                                    <input type="checkbox" name="arrendado" value="1" id="arrendado" />
+                                @endif
+                                <label class="slider-v1" for="arrendado"></label>
+                            </div>
+                            <div class="col-2">
+                                <a>Si</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="grupo">
@@ -133,14 +152,7 @@
                         <div class="form-group row">
                             <label for="estrato_inm" class="col-5 col-form-label">Estrato</label>
                             <div class="col-7">
-                                <select id="estrato_inm" name="estrato_inm" required="required" class="form-select">
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
-                                    <option value="5">5</option>
-                                    <option value="6">6</option>
-                                </select>
+                                {!! Form::select('estrato_inm', $estratos, $propiedad->estrato, ['class' => 'form-select', 'id' => 'tipo_inm', 'required' => 'required']) !!}
                             </div>
                         </div>
                     </div>
@@ -241,7 +253,7 @@
                             <div class="col-7">
                                 <div class="custom-file">
                                     <input type="file" class="form-control" name="certificado" id="certificado"
-                                        accept="image/*,.pdf" lang="es" disabled>
+                                        accept="image/*,.pdf" lang="es" required>
                                     <label class="custom-file-label" for="certificado" id="labelcert"
                                         data-browse="Cargar"></label>
                                 </div>
@@ -256,14 +268,15 @@
                                 <label for="remodelado" class="col-5 col-form-label">Remodelado hace menos de 5
                                     años</label>
                                 <div class="col-7">
-                                    {!! Form::select('remodelado', $remodelado, null, ['class' => 'form-select', 'id' => 'remodelado']) !!}
+                                    {!! Form::select('remodelado', $remodelado, $propiedad->remodelado, ['class' => 'form-select', 'id' => 'remodelado']) !!}
                                 </div>
                             </div>
                         @endif
                     </div>
                     <div class="col-12 col-md-6">
                         <div class="form-group row" id="sec_tuberia">
-                            <label for="tuberia" class="col-5 col-form-label">Incluyó cambio de toda la
+                            <label for="tuberia" class="col-5  col-form-label @if ($propiedad->remodelado == 'Total') d-none @endif ">Incluyó
+                                cambio de toda la
                                 tubería</label>
                             <div class="col-2">
                                 <a>No</a>
@@ -284,7 +297,8 @@
                             <label for="piso" class="col-5 col-form-label">Piso en el que está el
                                 inmueble</label>
                             <div class="col-7">
-                                <input id="piso" name="piso" type="number" min="1" max="30" class="form-control">
+                                <input id="piso" name="piso" type="number" min="1" max="30" value="{{ $propiedad->piso }}"
+                                    class="form-control">
                                 <div class="invalid-feedback d-none" id="errorpiso">
                                     Si el piso es superior a 30, dejalo en 30 😉
                                 </div>
@@ -298,7 +312,11 @@
                                 <a>No</a>
                             </div>
                             <div class="col-3 bool text-center">
-                                <input type="checkbox" name="ascensor" value="1" id="ascensor" />
+                                @if ($propiedad->piso == 'Si')
+                                    <input type="checkbox" name="ascensor" value="1" id="ascensor" checked />
+                                @else
+                                    <input type="checkbox" name="ascensor" value="1" id="ascensor" />
+                                @endif
                                 <label class="slider-v1" for="ascensor"></label>
                             </div>
                             <div class="col-2">
