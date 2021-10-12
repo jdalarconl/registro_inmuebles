@@ -2,6 +2,7 @@
 @section('title', 'Consigna tu inmueble')
 @section('more_head')
     <script src="{!! asset('js/selects.js') !!}"></script>
+    <script src="{!! asset('js/funciones.js') !!}"></script>
 @endsection
 
 @section('content')
@@ -109,7 +110,7 @@
                                 <a>No</a>
                             </div>
                             <div class="col-3 bool text-center">
-                                <input type="checkbox" name="arrendado" value="1" id="arrendado"  />
+                                <input type="checkbox" name="arrendado" value="1" id="arrendado" />
                                 <label class="slider-v1" for="arrendado"></label>
                             </div>
                             <div class="col-2">
@@ -345,16 +346,19 @@
     </div>
     <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
         aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog">
+        <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="staticBackdropLabel">Lo sentimos</h5>
-                </div>
                 <div class="modal-body">
-                    No nos es posible comercializar y administrar el inmueble si no cuenta con <span id="motivo"><span>
+                    <div class="sentimos text-center py-3">
+                        <img src="{!! asset('img/wesorry.png') !!}" class="img-fluid" alt="Lo sentimos">
+                    </div>
+                    Lo sentimos, no nos es posible comercializar y administrar el inmueble si no cuenta con <span
+                        id="motivo"><span>
                 </div>
                 <div class="modal-footer">
-                    <a href="https://epicainmobiliaria.com" type="button" class="btn botones">Finalizar</a>
+                    <button type="button" class="btn botones" onclick="noposibles()"
+                        data-bs-dismiss="modal">Volver</button>
+                    <a href="https://epicainmobiliaria.com" type="button" class="btn btn-secondary">Finalizar</a>
                 </div>
             </div>
         </div>

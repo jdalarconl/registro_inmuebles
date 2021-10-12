@@ -138,11 +138,7 @@
                 @yield('content')
             </div>
             <div class="d-none d-md-block col-md-1"></div>
-        </div>
-        <a href="https://api.whatsapp.com/send?phone=573174231781&text=Hola,%20deseo%20un%20concepto%20de%20precio%20y%20viabilidad%20jurídica.%20Mi%20inmueble%20es%20diferente%20a%20tipo%20apartamento,%20apartaestudio%20y%20casa%20uso%20vivienda"
-            class="float whts" target="_blank">
-            <i class="fab fa-whatsapp my-float"></i>
-        </a>
+        </div>        
     </div>
     @yield('scripts_footer')
 </body>

@@ -1,7 +1,7 @@
 @extends('layouts.plantilla')
 @section('title', 'Consigna tu inmueble')
 @section('more_head')
-        <script src="{!! asset('js/selects.js') !!}"></script>
+    <script src="{!! asset('js/selects.js') !!}"></script>
 @endsection
 
 @section('content')
@@ -36,21 +36,30 @@
                     <div class="row">
                         <div class="col-12 col-md-6">
                             <div class="form-group row">
-                                <label for="phone" class="col-5 col-form-label">Teléfono celular</label>
-                                <div class="col-7">
-                                    <input id="phone" name="phone" type="tel" class="form-control" required>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-12 col-md-6 border-right">
-                            <div class="form-group row">
                                 <label for="email" class="col-5 col-form-label">E-mail</label>
                                 <div class="col-7">
                                     <input id="email" name="email" type="email" class="form-control" required>
                                 </div>
                             </div>
                         </div>
-
+                        <div class="col-12 col-md-6 border-right">
+                            <div class="form-group row">
+                                <label for="phone" class="col-5 col-form-label">Teléfono celular</label>
+                                <div class="col-7">
+                                    <input id="phone" name="phone" type="tel" class="form-control" required>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 col-md-6">
+                            <div class="form-group row">
+                                <label for="asesor" class="col-5 col-form-label">Nombre del Asesor</label>
+                                <div class="col-7">
+                                    <input id="asesor" name="asesor" type="text" class="form-control">
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div class="row">
                         <div class="col-12 my-3 text-left">
@@ -82,6 +91,10 @@
             {{ Form::close() }}
         </div>
     </div>
+    <a href="https://api.whatsapp.com/send?phone=573174231781&text=Hola,%20deseo%20un%20concepto%20de%20precio%20y%20viabilidad%20jurídica.%20Mi%20inmueble%20es%20diferente%20a%20tipo%20apartamento,%20apartaestudio%20y%20casa%20uso%20vivienda"
+        class="float whts" target="_blank">
+        <i class="fab fa-whatsapp my-float"></i>
+    </a>
     <script src="{!! asset('js/tel/intlTelInput.js') !!}"></script>
     <script>
         var input = document.querySelector("#phone");
@@ -109,4 +122,5 @@
             utilsScript: "js/tel/utils.js",
         });
     </script>
+
 @endsection

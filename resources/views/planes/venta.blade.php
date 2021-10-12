@@ -179,7 +179,7 @@
                             <div class="row text-center align-items-center">
                                 ¿Aun tienes dudas?, Agendate y con gusto te apoyamos
                                 <a href="https://meetings.hubspot.com/reunion-con-andres-montero-de-epica-inmobiliaria/reunion-con-andres-montero-de-epica-inmobiliaria"
-                                    class="btn botones mt-3">Vamos</a>
+                                target="_blank" class="btn botones mt-3">Vamos</a>
                             </div>
                         </div>
                     </div>
