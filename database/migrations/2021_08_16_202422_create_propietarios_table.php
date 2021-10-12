@@ -25,6 +25,7 @@ class CreatePropietariosTable extends Migration
                 ->references('id')->on('tipos_documentos')
                 ->onDelete('set null');
             $table->string('paso')->nullable();
+            $table->string('asesor')->nullable();
             $table->timestamps();
         });
     }

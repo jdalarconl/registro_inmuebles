@@ -9,7 +9,7 @@ class Propietarios extends Model
 {
     use HasFactory;
     
-    protected $fillable = ['name', 'lastname', 'tipo_doc', 'doc_number', 'email', 'phone'];
+    protected $fillable = ['name', 'lastname', 'tipo_doc', 'doc_number', 'email', 'phone','asesor'];
 
     
 }
