@@ -1,8 +1,13 @@
+/* Gral*/
+
 @import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@100;300;400&display=swap');
 body {
     font-family: 'Montserrat Alternates', sans-serif;
     font-weight: 300;
 }
+
+
+/* Interfaz */
 
 .logo {
     max-width: 100%;
@@ -29,7 +34,7 @@ body {
 .nav-item:hover {
     font-weight: 400;
     background: rgb(246, 192, 21);
-    background: linear-gradient(90deg, rgba(246, 192, 21, 0.4770950616574755) 0%, rgba(255, 255, 255, 0) 100%);
+    background: linear-gradient(90deg, rgba(246, 192, 21, 0.4770950616574755) 30%, rgba(255, 255, 255, 0) 100%);
 }
 
 .nav-link:hover {
@@ -48,4 +53,72 @@ body {
     font-weight: 400;
     background: rgb(252, 0, 0);
     background: linear-gradient(90deg, rgba(252, 0, 0, 0.3706524846266631) 0%, rgba(255, 255, 255, 0) 100%);
+}
+
+
+/*tabla  */
+
+table {
+    border-collapse: separate !important;
+    border-spacing: 0 10px !important;
+}
+
+tbody tr {
+    background-color: white;
+    box-shadow: 0 .125rem .25rem rgba(0, 0, 0, .075);
+}
+
+td:first-child,
+th:first-child {
+    border-radius: 5px 0 0 5px;
+}
+
+td:last-child,
+th:last-child {
+    border-radius: 0 5px 5px 0;
+}
+
+
+/*Data table */
+
+table.dataTable thead th,
+table.dataTable thead td {
+    padding: unset !important;
+    border-bottom: unset !important;
+}
+
+table.dataTable.no-footer {
+    border-bottom: none !important;
+}
+
+.dataTables_filter,
+.dataTables_length {
+    margin-bottom: 1.5rem;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button {
+    border-radius: 50%!important;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button.current {
+    background: unset !important;
+    border: unset !important;
+    background-color: #ffeece !important;
+    color: #01303c !important;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button.current:hover {
+    background-color: #f6c015 !important;
+}
+
+
+/* opciones */
+
+.btn-epc {
+    background-color: #ffeece !important;
+    color: #01303c !important;
+}
+
+.btn-epc:hover {
+    background-color: #f6c015 !important;
 }
