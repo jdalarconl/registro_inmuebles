@@ -16,58 +16,58 @@
     <meta name="msapplication-config" content="{!! asset('img/icons/browserconfig.xml') !!}">
     <meta name="theme-color" content="#01303c">
     <!--Boostrap-->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"
-        integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp" crossorigin="anonymous">
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js"
-        integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/" crossorigin="anonymous">
-    </script>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
-    </script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
-        integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
-        crossorigin="anonymous" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="{!! asset('css/admin.css') !!}">
     @yield('more_head')
     <title>@yield('title')</title>
 </head>
 
 <body>
-    <nav class="navbar barra justify-content-center navbar-expand-lg navbar-dark bg-light">
-        <div class="container-fluid">
-            <img id="logo_image" src="{!! asset('img/logo_admin.png') !!}" class="img-fluid logo">
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse " id="navbarNav">
-                <div class="col-12 col-md-10">
-                    <ul class="nav justify-content-center">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Nuevos</a>
+    <nav class="navbar navbar-light shadow">
+        <div class="container-fluid ">
+            <a class="navbar-brand" href="#">
+                <img src="img/epica.svg" alt="" class="logo">
+            </a>
+            <div class="d-flex">
+                <div class="dropdown ">
+                    <button class="btn dropdown-toggle" type="button" id="logmenu" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="fas fa-user"></i>
+                    </button>
+                    <ul class="dropdown-menu shadow border-0 dropdown-menu-end" aria-labelledby="logmenu">
+                        <li><a class="dropdown-item disabled">amontero</a></li>
+                        <li>
+                            <hr class="dropdown-divider">
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Parciales</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Editar Campos</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link disabled">Salir</a>
-                        </li>
+                        <li><a class="dropdown-item salir " href=""><i class="fas fa-sign-out-alt"></i> Salir</a></li>
                     </ul>
                 </div>
             </div>
+
         </div>
     </nav>
-    <div class="container">
+    <div class="container-fluid">
         <div class="row">
-            @yield('content')
+            <div class="col-2 d-flex py-5 align-items-start vh-75">
+                <ul class="nav w-100 flex-column">
+                    <li class="nav-item rounded-pill">
+                        <a class="nav-link active" aria-current="page" href="#"><i class="fas fa-home"></i> Home</a>
+                    </li>
+                    <li class="nav-item rounded-pill">
+                        <a class="nav-link" href="#"> <i class="fas fa-pencil-alt"></i> Editar</a>
+                    </li>
+                    <li class="nav-item rounded-pill">
+                        <a class="nav-link" href="#"><i class="fas fa-angle-double-down"></i> Descargas </a>
+                    </li>
+                    <li class="nav-item rounded-pill">
+                        <a class="nav-link" href="#"><i class="far fa-file-pdf"></i> Contratos </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-10 contenido">
+                @yield('content')
+            </div>
         </div>
     </div>
 </body>
