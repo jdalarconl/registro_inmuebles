@@ -26,5 +26,9 @@ class EstufasSeeder extends Seeder
         $estufa3 = new Tipos_estufa();
         $estufa3->desc_tipos_estufa = "Eléctrica";
         $estufa3->save();
+
+        $estufa4 = new Tipos_estufa();
+        $estufa4->desc_tipos_estufa = "Cilindro";
+        $estufa4->save();
     }
 }

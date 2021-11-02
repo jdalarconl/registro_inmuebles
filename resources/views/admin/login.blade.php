@@ -2,7 +2,7 @@
 <html lang="es">
 
 <head>
-<meta charset="UTF-8">
+    <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Favicon-->
@@ -33,21 +33,22 @@
 
 <body>
     <div class="container-fluid login ">
-        <div class="row d-flex align-items-center vh-100 ">
+        <div class="row d-flex align-items-center vh-100">
             <div class="col-4"></div>
             <div class="col-4">
                 <div class="card shadow border-0 p-5 rounded">
                     <img src="img/epica.svg" class="card-img-top" alt="...">
                     <div class="card-body">
-                        <form action="">
-                            <div class="form-floating mb-3">
-                                <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com">
-                                <label for="floatingInput">Usuario</label>
-                            </div>
-                            <div class="text-end">
-                                <a type="button" class="btn btn-light shadow-sm" href="index.html">Ingresar</a>
-                            </div>
-                        </form>
+                        {{ Form::open(['method' => 'post']) }}
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com" required>
+                            <label for="floatingInput">Usuario</label>
+                        </div>
+                        <div class="text-end">
+                            <button type="submit" class="btn btn-light shadow-sm">Ingresar</button>
+                            
+                        </div>
+                        {{ Form::close() }}
                     </div>
                 </div>
             </div>

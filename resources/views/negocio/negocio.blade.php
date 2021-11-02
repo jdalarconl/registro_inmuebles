@@ -3,6 +3,12 @@
 @section('more_head')
     <script src="{!! asset('js/selects.js') !!}"></script>
     <script src="{!! asset('js/funciones.js') !!}"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+        integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+        crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+        integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+        crossorigin=""></script>
 @endsection
 
 @section('content')
@@ -46,7 +52,8 @@
                     </div>
                     <div class="col-12 col-md-6">
                         <div class="form-group row" id="valorgrupo">
-                            <label for="valor" id="valorlabel" class="col-5 col-form-label">¿Cuál valor le vas a asignar
+                            <label for="valor" id="valorlabel" class="col-5 col-form-label">¿Valor tentativo que le vas a
+                                asignar
                                 al inmueble?</label>
                             <div class="col-7">
                                 <input id="valor" name="valor" type="number" class="form-control" min="99000"
@@ -153,6 +160,16 @@
                         </div>
                     </div>
                 </div>
+                <div class="row">
+                    <div class="col-12 col-md-6">
+                        <div class="form-group row">
+                            <label for="asesor" class="col-5 col-form-label">Nombre del Asesor</label>
+                            <div class="col-7">
+                                <input id="asesor" name="asesor" type="text" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="grupo">
                 <div class="row seccion">
@@ -207,6 +224,10 @@
                             <div class="col-7">
                                 <input id="direccion" name="direccion" type="text" class="form-control"
                                     required="required" placeholder="Calle 25A #52B-06">
+                                <div class="text-end mt-3">
+                                    <button type="button" class="btn botones" onclick="localizar()">localizar</button>
+                                </div>
+                                <div id="map"></div>
                             </div>
                         </div>
                     </div>
@@ -225,11 +246,11 @@
                 <div class="row">
                     <div class="col-12 col-md-6 border-right">
                         <div class="form-group row">
-                            <label for="tiempo_inm" class="col-5 col-form-label">Año de
-                                contrucción</label>
+                            <label for="tiempo_inm" class="col-5 col-form-label">Años de
+                                contruido</label>
                             <div class="col-7">
-                                <input id="tiempo_inm" name="tiempo_inm" type="number" min="0" class="form-control"
-                                    max="<?php echo date('Y'); ?>" required="required">
+                                <input id="tiempo_inm" name="tiempo_inm" type="number" min="1" class="form-control"
+                                    max="100" required="required">
                             </div>
                         </div>
                     </div>
@@ -370,5 +391,29 @@
         var myModal = new bootstrap.Modal(document.getElementById('staticBackdrop'), {
 
         })
+    </script>
+    <script>
+        function localizar() {
+
+
+
+        }
+    </script>
+    <script>
+        var mymap = L.map('map').setView([4.6791626, -74.1148519], 17);
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(mymap);
+
+        let layer = L.geoJson(null, {});
+        
+        $.getJSON("https://nominatim.openstreetmap.org/search.php?street=calle+52a+%23+85C+10&city=Bogota&format=geojson&limit=1", function(data) {
+            layer.addData(data);
+        });
+
+        layer.addTo(mymap);
+
+        
     </script>
 @endsection

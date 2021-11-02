@@ -145,6 +145,12 @@ class ConjuntoController extends Controller
             $Propiedad->piscina = "No";
         }
 
+        if ($request->jardin_interior) {
+            $Propiedad->jardin_interior = "Si";
+        } else {
+            $Propiedad->jardin_interior = "No";
+        }
+
         $Propiedad->save();
 
         $negocio_unico = Negocios::where('propiedad', $Propiedad->id)->first();
@@ -153,7 +159,7 @@ class ConjuntoController extends Controller
         $propietario->paso = "Conjunto";
         $propietario->save();
 
-        return redirect()->route('fotos.show', $Propiedad);
+        return redirect()->route('planes.show', $Propiedad);
     }
 
     public function edit(Propiedades $propiedad)
@@ -281,6 +287,13 @@ class ConjuntoController extends Controller
         } else {
             $propiedad->piscina = "No";
         }
+
+        if ($request->jardin_interior) {
+            $propiedad->jardin_interior = "Si";
+        } else {
+            $propiedad->jardin_interior = "No";
+        }
+
 
         $propiedad->save();
 

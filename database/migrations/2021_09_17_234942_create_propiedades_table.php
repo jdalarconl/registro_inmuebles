@@ -149,6 +149,15 @@ class CreatePropiedadesTable extends Migration
             $table->string('zona_lavanderia')->nullable();
             $table->string('patio')->nullable();
             $table->string('entrega_cortinas')->nullable();
+
+            $table->string('piscina_privada')->nullable();
+            $table->string('sauna_privada')->nullable();
+            $table->string('turco_privado')->nullable();
+            $table->string('jacuzzi_privado')->nullable();
+            $table->string('tina_privada')->nullable();
+            $table->string('aire_privado')->nullable();
+            $table->string('calefaccion_privada')->nullable();
+
             $table->string('garaje_i')->nullable();
             $table->string('garaje_c')->nullable();
 
@@ -189,6 +198,7 @@ class CreatePropiedadesTable extends Migration
             $table->string('certificado')->nullable();
             $table->string('habitado')->nullable();
             $table->string('piscina')->nullable();
+            $table->string('jardin_interior')->nullable();
             $table->string('chip')->nullable();
             $table->string('matricula')->nullable();
             $table->timestamps();

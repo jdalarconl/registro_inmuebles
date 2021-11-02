@@ -47,7 +47,8 @@
                     </div>
                     <div class="col-12 col-md-6">
                         <div class="form-group row" id="valorgrupo">
-                            <label for="valor" id="valorlabel" class="col-5 col-form-label">¿Cuál valor le vas a asignar
+                            <label for="valor" id="valorlabel" class="col-5 col-form-label">¿Valor tentativo que le vas a
+                                asignar
                                 al inmueble?</label>
                             <div class="col-7">
                                 <input id="valor" name="valor" type="number" value="{{ $negocio_unico->valor }}"
@@ -205,12 +206,12 @@
                 <div class="row">
                     <div class="col-12 col-md-6 border-right">
                         <div class="form-group row">
-                            <label for="tiempo_inm" class="col-5 col-form-label">Año de
-                                contrucción</label>
+                            <label for="tiempo_inm" class="col-5 col-form-label">Años de
+                                contruido</label>
                             <div class="col-7">
                                 <input id="tiempo_inm" name="tiempo_inm" type="number"
-                                    value="{{ $propiedad->tiempo_inm }}" min="0" class="form-control"
-                                    max="<?php echo date('Y'); ?>" required="required">
+                                    value="{{ $propiedad->tiempo_inm }}" min="0" class="form-control" max="80"
+                                    required="required">
                             </div>
                         </div>
                     </div>
@@ -321,6 +322,16 @@
                             </div>
                             <div class="col-2">
                                 <a>Si</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-md-6">
+                        <div class="form-group row">
+                            <label for="asesor" class="col-5 col-form-label">Nombre del Asesor</label>
+                            <div class="col-7">
+                                <input id="asesor" name="asesor" type="text" class="form-control" value="{{ $negocio_unico->asesor }}">
                             </div>
                         </div>
                     </div>

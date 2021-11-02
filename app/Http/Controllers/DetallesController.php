@@ -168,10 +168,47 @@ class DetallesController extends Controller
             $Propiedad->entrega_cortinas = "No";
         }
 
-        if ($request->garaje_i) {
-            $Propiedad->garaje_i = "Si";
+        if ($request->piscina_p) {
+            $Propiedad->piscina_privada = "Si";
         } else {
-            $Propiedad->garaje_i = "No";
+            $Propiedad->piscina_privada = "No";
+        }
+
+        if ($request->sauna_p) {
+            $Propiedad->sauna_privada = "Si";
+        } else {
+            $Propiedad->sauna_privada = "No";
+        }
+
+        if ($request->turco_p) {
+            $Propiedad->turco_privado = "Si";
+        } else {
+            $Propiedad->turco_privado = "No";
+        }
+
+        if ($request->jacuzzi_p) {
+            $Propiedad->jacuzzi_privado = "Si";
+        } else {
+            $Propiedad->jacuzzi_privado = "No";
+        }
+
+        if ($request->tina_p) {
+            $Propiedad->tina_privada = "Si";
+        } else {
+            $Propiedad->tina_privada = "No";
+        }
+
+        if ($request->aire_p) {
+            $Propiedad->aire_privado = "Si";
+        } else {
+            $Propiedad->aire_privado = "No";
+        }
+
+        
+        if ($request->calefaccion_p) {
+            $Propiedad->calefaccion_privada = "Si";
+        } else {
+            $Propiedad->calefaccion_privada = "No";
         }
 
         if ($request->garaje_c) {
@@ -326,6 +363,60 @@ class DetallesController extends Controller
             $propiedad->entrega_cortinas = "Si";
         } else {
             $propiedad->entrega_cortinas = "No";
+        }
+
+        if ($request->piscina_p) {
+            $propiedad->piscina_privada = "Si";
+        } else {
+            $propiedad->piscina_privada = "No";
+        }
+
+        if ($request->sauna_p) {
+            $propiedad->sauna_privada = "Si";
+        } else {
+            $propiedad->sauna_privada = "No";
+        }
+
+        if ($request->turco_p) {
+            $propiedad->turco_privado = "Si";
+        } else {
+            $propiedad->turco_privado = "No";
+        }
+
+        if ($request->jacuzzi_p) {
+            $propiedad->jacuzzi_privado = "Si";
+        } else {
+            $propiedad->jacuzzi_privado = "No";
+        }
+
+        if ($request->tina_p) {
+            $propiedad->tina_privada = "Si";
+        } else {
+            $propiedad->tina_privada = "No";
+        }
+
+        if ($request->aire_p) {
+            $propiedad->aire_privado = "Si";
+        } else {
+            $propiedad->aire_privado = "No";
+        }
+
+        if ($request->aire_p) {
+            $propiedad->aire_privado = "Si";
+        } else {
+            $propiedad->aire_privado = "No";
+        }
+
+        if ($request->calefaccion_p) {
+            $propiedad->calefaccion_privada = "Si";
+        } else {
+            $propiedad->calefaccion_privada = "No";
+        }
+
+        if ($request->garaje_c) {
+            $propiedad->garaje_c = "Si";
+        } else {
+            $propiedad->garaje_c = "No";
         }
 
         if ($request->garaje_i) {

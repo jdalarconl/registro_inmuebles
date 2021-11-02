@@ -30,5 +30,9 @@ class MoPiCocinaSeeder extends Seeder
         $material4 = new Mats_piso_cocina();
         $material4->desc_mats_piso_cocina = "Mármol";
         $material4->save();
+
+        $material5 = new Mats_piso_cocina();
+        $material5->desc_mats_piso_cocina = "Laminado";
+        $material5->save();
     }
 }

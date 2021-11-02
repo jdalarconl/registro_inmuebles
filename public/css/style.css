@@ -188,6 +188,14 @@ input {
     font-weight: 600 !important;
 }
 
+#map {
+    height: 300px;
+}
+
+.my-leaflet-map-container img {
+    max-height: none;
+}
+
 .tj3 a {
     font-size: 0.8em;
 }

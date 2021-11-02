@@ -12,4 +12,9 @@ class UsuarioController extends Controller
     {
         return view('admin.login');
     }
+
+    public function validar(Request $request)
+    {
+        return view('admin.main');
+    }
 }

@@ -7,7 +7,6 @@ $(document).ready(function() {
 
 
     if ($('#propietario').length) {
-
         $(".usuario i").css("color", "#01303c");
         $(".usuario .progress-bar").css("background-color", "#01303c");
 
@@ -17,7 +16,7 @@ $(document).ready(function() {
         $(".usuario .progress-bar, .negocio .progress-bar").css("background-color", "#01303c");
 
         $('#reglas').hide();
-
+        $('#sec_tuberia').hide();
         if ($('#tipo_inm').val() == 2) {
             $('#aptos2').show();
             $('#piso').attr("required", "true");
@@ -35,9 +34,6 @@ $(document).ready(function() {
 
         if ($('#tiempo_inm').val() == "") {
             $('#SecRemodelado').hide();
-        }
-        if ($('#remodelado').val() != 1) {
-            $('#sec_tuberia').hide();
         }
 
         $('#espropietario').change(function() {
@@ -91,11 +87,11 @@ $(document).ready(function() {
                 $('#cortina').show();
                 $('#admonhelper').show();
                 $('#reglas').show();
-                $('#valorlabel').html("¿Cu&aacute;l valor le vas a asignar al inmueble en arriendo?");
+                $('#valorlabel').html("¿Cu&aacute;l valor tentativo le vas a asignar al inmueble en arriendo?");
             }
             if ($('#negocio').val() == 1) {
                 $('#cortina').show();
-                $('#valorlabel').html("¿Cu&aacute;l valor le vas a asignar al inmueble en venta?");
+                $('#valorlabel').html("¿Cu&aacute;l valor tentativo le vas a asignar al inmueble en venta?");
                 $('#admonhelper').hide();
                 $('#reglas').hide();
             }
@@ -114,7 +110,7 @@ $(document).ready(function() {
 
 
         $('#tiempo_inm').change(function() {
-            if ($('#tiempo_inm').val() <= (year - 5) && $('#tiempo_inm').val() > 0 && $('#tiempo_inm').val() != "") {
+            if ($('#tiempo_inm').val() >= 5 && $('#tiempo_inm').val() > 0 && $('#tiempo_inm').val() != "") {
                 console.log("si");
                 $('#SecRemodelado').show();
                 $('#remodelado').attr("required", "true");
@@ -125,7 +121,6 @@ $(document).ready(function() {
         });
 
         $('#remodelado').change(function() {
-            console.log($('#remodelado').val());
             if ($('#remodelado').val() == 1) {
                 $('#sec_tuberia').show();
             } else {
@@ -140,6 +135,7 @@ $(document).ready(function() {
         $('#sec_garajes').hide();
 
         $('#no_garajes').change(function() {
+            console.log("cambió");
             if ($('#no_garajes').val() > 2) {
                 $('#sec_garajes').show();
             } else {

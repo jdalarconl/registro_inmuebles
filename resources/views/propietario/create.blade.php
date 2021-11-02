@@ -50,17 +50,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-12 col-md-6">
-                            <div class="form-group row">
-                                <label for="asesor" class="col-5 col-form-label">Nombre del Asesor</label>
-                                <div class="col-7">
-                                    <input id="asesor" name="asesor" type="text" class="form-control">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    </div>                    
                     <div class="row">
                         <div class="col-12 my-3 text-left">
                             <div class="form-check">

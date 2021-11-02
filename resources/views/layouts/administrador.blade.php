@@ -37,7 +37,7 @@
     <nav class="navbar navbar-light shadow">
         <div class="container-fluid ">
             <a class="navbar-brand" href="#">
-                <img src="img/epica.svg" alt="" class="logo">
+                <img src="{!! asset('img/epica.svg') !!}" alt="" class="logo">
             </a>
             <div class="d-flex">
                 <div class="dropdown ">
@@ -62,10 +62,11 @@
             <div class="col-2 d-flex py-5 align-items-start vh-75">
                 <ul class="nav w-100 flex-column">
                     <li class="nav-item rounded-pill">
-                        <a class="nav-link active" aria-current="page" href="#"><i class="fas fa-home"></i> Home</a>
+                        <a class="nav-link active" aria-current="page" href="{{ route('administrador.main') }}"><i class="fas fa-home"></i> Home</a>
                     </li>
                     <li class="nav-item rounded-pill">
-                        <a class="nav-link" href="#"> <i class="fas fa-pencil-alt"></i> Editar</a>
+                        <a class="nav-link" href="{{ route('administrador.edit') }}"> <i
+                                class="fas fa-pencil-alt"></i> Editar</a>
                     </li>
                     <li class="nav-item rounded-pill">
                         <a class="nav-link" href="#"><i class="fas fa-angle-double-down"></i> Descargas </a>

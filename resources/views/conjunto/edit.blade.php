@@ -433,8 +433,27 @@
                             @else
                                 <input type="checkbox" value="1" name="piscina" id="piscina" />
                             @endif
-
                             <label class="slider-v1" for="piscina"></label>
+                        </div>
+                        <div class="col-2">
+                            <a>Si</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4 border-right">
+                    <div class="form-group row">
+                        <label for="jardin_interior" class="col-5 col-form-label">
+                            Jardín Interior</label>
+                        <div class="col-2">
+                            <a>No</a>
+                        </div>
+                        <div class="col-3 bool text-center">
+                            @if ($propiedad->jardin_interior == 'Si')
+                            <input type="checkbox" value="1" name="jardin_interior" id="jardin_interior" checked />
+                            @else
+                                <input type="checkbox" value="1" name="jardin_interior" id="jardin_interior" />
+                            @endif
+                            <label class="slider-v1" for="jardin_interior"></label>
                         </div>
                         <div class="col-2">
                             <a>Si</a>

@@ -92,7 +92,7 @@ class NegocioController extends Controller
         $negocio->propietario = $propietario->id;
         $negocio->propiedad = $propiedad->id;
         $negocio->tipo_negocio = $request->tipo;
-
+        $negocio->asesor = $request->asesor;
         $negocio->valor = $request->valor;
         $negocio->save();
 
@@ -171,6 +171,7 @@ class NegocioController extends Controller
 
         $negocio_unico->tipo_negocio = $request->tipo;
         $negocio_unico->valor = $request->valor;
+        $negocio_unico->asesor = $request->asesor;
         $negocio_unico->save();
 
         return redirect()->route('detalles.show', $propiedad);

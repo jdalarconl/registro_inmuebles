@@ -64,7 +64,7 @@ $(document).ready(function() {
         var valor = $('#valor').val();
         $('#valorpesos').html("$ " + Intl.NumberFormat("es-CO").format(valor));
 
-        if ($('#tiempo_inm').val() <= (year - 5) && $('#tiempo_inm').val() > 0) {
+        if ($('#tiempo_inm').val() >= 5 && $('#tiempo_inm').val() > 0) {
 
             $('#SecRemodelado').show();
             $('#remodelado').attr("required", "true");
